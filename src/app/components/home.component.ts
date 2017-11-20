@@ -4,12 +4,13 @@ import { YoutubeService } from '../services/youtube.service';
 @Component({
   template: `
     <h1>Home</h1>
+    <youtube-player></youtube-player>
+    <br>
     <input type="text" #searchQuery />
     <button (click)="search(searchQuery.value)">Search</button>
     <p *ngFor="let result of searchResults">
-      <img [src]="result.snippet.thumbnails.default.url" />
+      <img (click)="playVideo(result.id.videoId)" [src]="result.snippet.thumbnails.default.url" />
       {{ result.snippet.title }}
-      {{ result.id.videoId }}
     </p>
   `
 })
@@ -23,5 +24,9 @@ export class HomeComponent {
     this._youtube.search(query).then(items => {
       this.searchResults = items;
     })
+  }
+
+  playVideo(ytId: string) {
+    this._youtube.playVideo(ytId);
   }
 }

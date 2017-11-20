@@ -6,6 +6,7 @@ import { AppRoutingModule } from './appRouting.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/pageNotFound.component';
 import { HomeComponent } from './components/home.component';
+import { YoutubePlayerComponent } from './components/youtubePlayer.component';
 
 import { YoutubeService } from './services/youtube.service';
 
@@ -17,7 +18,8 @@ import { YoutubeService } from './services/youtube.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    YoutubePlayerComponent
   ],
   providers: [YoutubeService],
   bootstrap: [AppComponent]
